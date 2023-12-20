@@ -16,16 +16,16 @@ pipeline {
         string(name: 'EMAIL', defaultValue: '', description: 'Enter email')
         string(name: 'FIRSTNAME', defaultValue: '', description: 'Enter first name')
         string(name: 'LASTNAME', defaultValue: '', description: 'Enter last name')
-        choice(
-            name: 'PACKAGES',
-            choices: ['', 'vim', 'wget', 'unzip', 'curl'],
-            description: ''
-        )
-        choice(
-            name: 'ACCOUNT_MANAGEMENT',
-            choices: ['', 'add_user', 'delete_user', 'lock_user', 'unlock_user'],
-            description: ''
-        )
+        // choice(
+        //     name: 'PACKAGES',
+        //     choices: ['', 'vim', 'wget', 'unzip', 'curl'],
+        //     description: ''
+        // )
+        // choice(
+        //     name: 'ACCOUNT_MANAGEMENT',
+        //     choices: ['', 'add_user', 'delete_user', 'lock_user', 'unlock_user'],
+        //     description: ''
+        // )
     }
     stages {
         stage ('Checkout') {
@@ -38,7 +38,7 @@ pipeline {
                         extensions: [[$class: 'LocalBranch']],
                         submoduleCfg: [],
                         userRemoteConfigs: [[
-                        url: 'https://github.com/devopstia/a1.git',
+                        url: 'https://github.com/clovisbernard/jenkins-classes.git',
                         credentialsId: 'github-auth'
                         ]]
                     ])
@@ -48,9 +48,10 @@ pipeline {
         stage('run') {
             steps {
                 script {
-                    dir("${WORKSPACE}/code/jenkins/scripts") {
+                    dir("${WORKSPACE}/code/scripts") {
                         sh """
                             ls -l
+                            pwd  
                             sudo chmod +x user-management-packages.sh
                             sudo bash user-management-packages.sh ${params.PACKAGES} ${params.USERNAME} ${params.PASSWORD} ${params.EMAIL} ${params.FIRSTNAME} ${params.LASTNAME} ${params.ACCOUNT_MANAGEMENT}
                         """
