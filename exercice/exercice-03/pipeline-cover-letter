@@ -10,19 +10,19 @@ pipeline {
         timestamps()
     }
     parameters {
-        string(name: 'YOUR_NAME', defaultValue: '', description: 'No special character, Use double quote if more than one word')
-        string(name: 'YOUR_ADDRESS', defaultValue: '', description: 'No special character, Use double quote if more than one word')
-        string(name: 'CANIDATE_CITY_STATE_ZIP_CODE', defaultValue: '', description: 'No special character, Use double quote if more than one word')
-        string(name: 'YOUR_EMAIL_ADDRESS', defaultValue: '', description: 'No special character, Use double quote if more than one word')
-        string(name: 'YOUR_PHONE_NUMBER', defaultValue: '', description: 'No special character, Use double quote if more than one word')
-        string(name: 'PREVIOUS_COMPANY', defaultValue: '', description: 'No special character, Use double quote if more than one word')
-        string(name: 'JOB_TITLE', defaultValue: '', description: 'No special character, Use double quote if more than one word')
+        string(name: 'YOUR_NAME', defaultValue: '', description: 'No special character, Use double quote if there is space between words')
+        string(name: 'YOUR_ADDRESS', defaultValue: '', description: 'No special character, Use double quote if there is space between words')
+        string(name: 'CANIDATE_CITY_STATE_ZIP_CODE', defaultValue: '', description: 'No special character, Use double quote if there is space between words')
+        string(name: 'YOUR_EMAIL_ADDRESS', defaultValue: '', description: 'No special character, Use double quote if there is space between words')
+        string(name: 'YOUR_PHONE_NUMBER', defaultValue: '', description: 'No special character, Use double quote if there is space between words')
+        string(name: 'PREVIOUS_COMPANY', defaultValue: '', description: 'No special character, Use double quote if there is space between words')
+        string(name: 'JOB_TITLE', defaultValue: '', description: 'No special character, Use double quote if there is space between words')
 
-        string(name: 'EMPLOYER_NAME', defaultValue: '', description: 'No special character, Use double quote if more than one word')
-        string(name: 'COMPANY_NAME', defaultValue: '', description: 'No special character, Use double quote if more than one word')
-        string(name: 'COMPANY_ADDRESS', defaultValue: '', description: 'No special character, Use double quote if more than one word')
-        string(name: 'EMPLOYER_CITY_STATE_ZIP_CODE', defaultValue: '', description: 'No special character, Use double quote if more than one word')
-        string(name: 'BRANCH', defaultValue: 'main', description: 'No special character, Use double quote if more than one word')
+        string(name: 'EMPLOYER_NAME', defaultValue: '', description: 'No special character, Use double quote if there is space between words')
+        string(name: 'COMPANY_NAME', defaultValue: '', description: 'No special character, Use double quote if there is space between words')
+        string(name: 'COMPANY_ADDRESS', defaultValue: '', description: 'No special character, Use double quote if there is space between words')
+        string(name: 'EMPLOYER_CITY_STATE_ZIP_CODE', defaultValue: '', description: 'No special character, Use double quote if there is space between words')
+        string(name: 'BRANCH', defaultValue: 'main', description: 'No special character, Use double quote if there is space between words')
 
 
 
