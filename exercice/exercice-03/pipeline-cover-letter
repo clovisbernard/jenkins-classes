@@ -1,0 +1,62 @@
+pipeline {
+    agent {
+        label 'master'
+    }
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '7'))
+        // skipDefaultCheckout(true)
+        disableConcurrentBuilds()
+        timeout (time: 1, unit: 'MINUTES')
+        timestamps()
+    }
+    parameters {
+        string(name: 'YOUR_NAME', defaultValue: 'main', description: '')
+        string(name: 'YOUR_ADDRESS', defaultValue: '', description: 'Enter YOUR_ADDRESS')
+        string(name: 'CANIDATE_CITY_STATE_ZIP_CODE', defaultValue: '', description: 'Enter CANIDATE_CITY_STATE_ZIP_CODE')
+        string(name: 'YOUR_EMAIL_ADDRESS', defaultValue: '', description: 'Enter YOUR_EMAIL_ADDRESS')
+        string(name: 'YOUR_PHONE_NUMBER', defaultValue: '', description: 'Enter YOUR_PHONE_NUMBER')
+        string(name: 'PREVIOUS_COMPANY', defaultValue: '', description: 'Enter first name')
+        string(name: 'JOB_TITLE', defaultValue: '', description: 'Enter last name')
+
+        string(name: 'EMPLOYER_NAME', defaultValue: '', description: 'Enter YOUR_EMAIL_ADDRESS')
+        string(name: 'COMPANY_NAME', defaultValue: '', description: 'Enter first name')
+        string(name: 'COMPANY_ADDRESS', defaultValue: '', description: 'Enter last name')
+        string(name: 'EMPLOYER_CITY_STATE_ZIP_CODE', defaultValue: '', description: 'Enter EMPLOYER_CITY_STATE_ZIP_CODE')
+
+
+
+
+    }
+    stages {
+        stage ('Checkout') {
+            steps {
+                dir("${WORKSPACE}/code") {
+                    checkout([
+                        $class: 'GitSCM',
+                        branches: [[name: "*/${params.YOUR_NAME}"]],
+                        doGenerateSubmoduleConfigurations: false,
+                        extensions: [[$class: 'LocalBranch']],
+                        submoduleCfg: [],
+                        userRemoteConfigs: [[
+                        url: 'https://github.com/clovisbernard/jenkins-classes.git',
+                        credentialsId: 'github-auth'
+                        ]]
+                    ])
+                }
+            }
+        }
+        stage('run') {
+            steps {
+                script {
+                    dir("${WORKSPACE}/code/exercice/exercice-03") {
+                        sh """
+                            ls -l
+                            sudo chmod +x cover-letter-2.sh
+                            sudo bash cover-letter-2.sh ${params.YOUR_NAME} ${params.YOUR_ADDRESS} ${params.CANIDATE_CITY_STATE_ZIP_CODE} ${params.YOUR_EMAIL_ADDRESS} ${params.YOUR_PHONE_NUMBER} ${params.PREVIOUS_COMPANY} ${params.JOB_TITLE} ${params.EMPLOYER_NAME} ${params.COMPANY_NAME} ${params.COMPANY_ADDRESS} ${params.EMPLOYER_CITY_STATE_ZIP_CODE}
+                        """
+                    }
+                }
+            }
+        }
+    }
+}
