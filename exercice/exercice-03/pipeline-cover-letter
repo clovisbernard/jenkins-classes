@@ -10,19 +10,19 @@ pipeline {
         timestamps()
     }
     parameters {
-        string(name: 'YOUR_NAME', defaultValue: 'main', description: '')
-        string(name: 'YOUR_ADDRESS', defaultValue: '', description: 'Enter YOUR_ADDRESS')
-        string(name: 'CANIDATE_CITY_STATE_ZIP_CODE', defaultValue: '', description: 'Enter CANIDATE_CITY_STATE_ZIP_CODE')
-        string(name: 'YOUR_EMAIL_ADDRESS', defaultValue: '', description: 'Enter YOUR_EMAIL_ADDRESS')
-        string(name: 'YOUR_PHONE_NUMBER', defaultValue: '', description: 'Enter YOUR_PHONE_NUMBER')
-        string(name: 'PREVIOUS_COMPANY', defaultValue: '', description: 'Enter first name')
-        string(name: 'JOB_TITLE', defaultValue: '', description: 'Enter last name')
+        string(name: 'YOUR_NAME', defaultValue: '', description: 'No special character, Use double quote if more than one word')
+        string(name: 'YOUR_ADDRESS', defaultValue: '', description: 'No special character, Use double quote if more than one word')
+        string(name: 'CANIDATE_CITY_STATE_ZIP_CODE', defaultValue: '', description: 'No special character, Use double quote if more than one word')
+        string(name: 'YOUR_EMAIL_ADDRESS', defaultValue: '', description: 'No special character, Use double quote if more than one word')
+        string(name: 'YOUR_PHONE_NUMBER', defaultValue: '', description: 'No special character, Use double quote if more than one word')
+        string(name: 'PREVIOUS_COMPANY', defaultValue: '', description: 'No special character, Use double quote if more than one word')
+        string(name: 'JOB_TITLE', defaultValue: '', description: 'No special character, Use double quote if more than one word')
 
-        string(name: 'EMPLOYER_NAME', defaultValue: '', description: 'Enter YOUR_EMAIL_ADDRESS')
-        string(name: 'COMPANY_NAME', defaultValue: '', description: 'Enter first name')
-        string(name: 'COMPANY_ADDRESS', defaultValue: '', description: 'Enter last name')
-        string(name: 'EMPLOYER_CITY_STATE_ZIP_CODE', defaultValue: '', description: 'Enter EMPLOYER_CITY_STATE_ZIP_CODE')
-
+        string(name: 'EMPLOYER_NAME', defaultValue: '', description: 'No special character, Use double quote if more than one word')
+        string(name: 'COMPANY_NAME', defaultValue: '', description: 'No special character, Use double quote if more than one word')
+        string(name: 'COMPANY_ADDRESS', defaultValue: '', description: 'No special character, Use double quote if more than one word')
+        string(name: 'EMPLOYER_CITY_STATE_ZIP_CODE', defaultValue: '', description: 'No special character, Use double quote if more than one word')
+        string(name: 'BRANCH', defaultValue: 'main', description: 'No special character, Use double quote if more than one word')
 
 
 
@@ -33,7 +33,7 @@ pipeline {
                 dir("${WORKSPACE}/code") {
                     checkout([
                         $class: 'GitSCM',
-                        branches: [[name: "*/${params.YOUR_NAME}"]],
+                        branches: [[name: "*/${params.BRANCH}"]],
                         doGenerateSubmoduleConfigurations: false,
                         extensions: [[$class: 'LocalBranch']],
                         submoduleCfg: [],
