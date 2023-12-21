@@ -8,11 +8,11 @@ JOB_TITLE=$7
 
 EMPLOYER_NAME=$8
 COMPANY_NAME=$9
-COMPANY_ADDRESS=$10
-EMPLOYER_CITY_STATE_ZIP_CODE=$11
+COMPANY_ADDRESS=${10}
+EMPLOYER_CITY_STATE_ZIP_CODE=${11}
 
-cat <<EOF >> Cover_letter"-\$(date +'%Y-%m-%d-%H:%M:%S').txt
-Cover_letter"-\$(date +'%Y-%m-%d-%H:%M:%S').txt
+# cat <<EOF > "Cover_letter-"\$(date +'%Y-%m-%d-%H:%M:%S').txt
+cat <<EOF > "Cover_letter-\$(date +'%Y-%m-%d-%H:%M:%S').txt"
 $YOUR_NAME
 $YOUR_ADDRESS
 $CANIDATE_CITY_STATE_ZIP_CODE
@@ -52,4 +52,3 @@ Sincerely,
 
 $YOUR_NAME
 EOF
-#
