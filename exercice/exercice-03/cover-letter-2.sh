@@ -11,7 +11,7 @@ COMPANY_NAME=$9
 COMPANY_ADDRESS=$10
 EMPLOYER_CITY_STATE_ZIP_CODE=$11
 
-cat <<EOF >> Cover_letter_$COMPANY_NAME-$(date +"%Y-%m-%d-%H:%M:%S").txt
+cat <<EOF >> Cover_letter-\$(date +'%Y-%m-%d-%H:%M:%S').txt
 $YOUR_NAME
 $YOUR_ADDRESS
 $CANIDATE_CITY_STATE_ZIP_CODE
