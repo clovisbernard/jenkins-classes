@@ -50,8 +50,8 @@ pipeline {
                 script {
                     dir("${WORKSPACE}/code/exercice/exercice-03") {
                         sh """
-                            sudo chmod +x cover-letter-2.sh
-                            sudo bash cover-letter-2.sh ${params.YOUR_NAME} ${params.YOUR_ADDRESS} ${params.CANIDATE_CITY_STATE_ZIP_CODE} ${params.YOUR_EMAIL_ADDRESS} ${params.YOUR_PHONE_NUMBER} ${params.PREVIOUS_COMPANY} ${params.JOB_TITLE} ${params.EMPLOYER_NAME} ${params.COMPANY_NAME} ${params.COMPANY_ADDRESS} ${params.EMPLOYER_CITY_STATE_ZIP_CODE}
+                            sudo chmod +x cover-letter-with-argument.sh
+                            sudo bash cover-letter-with-argument.sh ${params.YOUR_NAME} ${params.YOUR_ADDRESS} ${params.CANIDATE_CITY_STATE_ZIP_CODE} ${params.YOUR_EMAIL_ADDRESS} ${params.YOUR_PHONE_NUMBER} ${params.PREVIOUS_COMPANY} ${params.JOB_TITLE} ${params.EMPLOYER_NAME} ${params.COMPANY_NAME} ${params.COMPANY_ADDRESS} ${params.EMPLOYER_CITY_STATE_ZIP_CODE}
                             echo "Your resume is located here:"\$(pwd)
                         """
                     }
