@@ -11,7 +11,8 @@ COMPANY_NAME=$9
 COMPANY_ADDRESS=$10
 EMPLOYER_CITY_STATE_ZIP_CODE=$11
 
-cat <<EOF >> Cover_letter-\$(date +'%Y-%m-%d-%H:%M:%S').txt
+cat <<EOF >> Cover_letter"-\$(date +'%Y-%m-%d-%H:%M:%S').txt
+Cover_letter"-\$(date +'%Y-%m-%d-%H:%M:%S').txt
 $YOUR_NAME
 $YOUR_ADDRESS
 $CANIDATE_CITY_STATE_ZIP_CODE
@@ -32,7 +33,7 @@ I am writing to express my interest in the $JOB_TITLE position at $COMPANY_NAME,
 
 In my previous role at $PREVIOUS_COMPANY, I played a pivotal role in implementing and maintaining DevOps best practices. I successfully led the automation of deployment processes, reducing deployment time by 30% and minimizing errors. Additionally, I orchestrated the migration of on-premises infrastructure to the cloud, leveraging AWS services to enhance scalability and reliability.
 
-My technical skills include proficiency in :
+My technical skills include proficiency in:
 
 - Configuration management tools such as Ansible and Puppet
 - Containerization technologies like Docker and Kubernetes
