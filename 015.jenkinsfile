@@ -28,7 +28,7 @@
                         extensions: [[$class: 'LocalBranch']],
                         submoduleCfg: [],
                         userRemoteConfigs: [[
-                        url: 'https://github.com/devopstia/a1.git',
+                        url: 'https://github.com/clovisbernard/jenkins-classes.git',
                         credentialsId: 'github-auth'
                         ]]
                     ])
