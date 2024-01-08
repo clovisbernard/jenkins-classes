@@ -3,7 +3,7 @@ pipeline {
         label 'master'
     }
     options {
-        buildDiscarder(logRotator(numToKeepStr: '7'))
+        buildDiscarder(logRotator(numToKeepStr: '5'))
         // skipDefaultCheckout(true)
         disableConcurrentBuilds()
         timeout (time: 1, unit: 'MINUTES')
@@ -30,7 +30,7 @@ pipeline {
     stages {
         stage ('Checkout') {
             steps {
-                dir("${WORKSPACE}/code/scripts") {
+                dir("${WORKSPACE}/code") {
                     checkout([
                         $class: 'GitSCM',
                         branches: [[name: "*/${params.BRANCH}"]],
