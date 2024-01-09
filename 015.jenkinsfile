@@ -58,7 +58,7 @@
         stage('Set variables') {
             steps {
                 script {
-                     dir("${WORKSPACE}/code/jenkins/docker-compose") {
+                     dir("${WORKSPACE}/code/docker-compose") {
                         withCredentials([
                         usernamePassword(credentialsId: 'weather-app-redis-cred', 
                         usernameVariable: 'REDIS_USERNAME', 
@@ -81,7 +81,7 @@
         stage('Pull Images') {
             steps {
                 script {
-                    dir("${WORKSPACE}/code/jenkins/docker-compose") {
+                    dir("${WORKSPACE}/code/docker-compose") {
                         pullImages()
                     }
                 }
